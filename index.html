@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <title>כמה אתה עכשיו</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 2.2em;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    .number {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      font-size: 1.2em;
+      min-height: 2.5em;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>כמה אתה עכשיו?</h1>
+    <div class="number" id="value">50</div>
+    <input type="range" min="1" max="100" value="50" id="slider">
+    <div class="text" id="text"></div>
+  </div>
+
+  <script>
+    const slider = document.getElementById("slider");
+    const valueEl = document.getElementById("value");
+    const textEl = document.getElementById("text");
+
+    const phrases = [
+      "אתה כאן טכנית בלבד.",
+      "עדיין לא התחלת.",
+      "המוח עוד מתעורר.",
+      "אל תשאל אותך שאלות קשות עכשיו.",
+      "תן לזה רגע.",
+      "המערכת עולה לאט.",
+      "אפשר קפה?",
+      "אתה מתפקד על אוטומט.",
+      "יש סימני חיים.",
+      "אפשר לדבר איתך בזהירות.",
+
+      "עוד לא חזרת לעצמך.",
+      "מצב נמוך אך יציב.",
+      "אתה שורד את הרגע.",
+      "לא רע, לא נוכח.",
+      "קיים אבל לא בעניין.",
+      "חצי מבט במסך.",
+      "הראש במקום אחר.",
+      "אתה על מצב חסכון.",
+      "לא היום הכי חד.",
+      "עוד קצת ותגיע.",
+
+      "הנה אתה.",
+      "יש ניצוץ.",
+      "מתחיל לזוז.",
+      "קצת יותר מפעם.",
+      "המצב משתפר.",
+      "אפשר לסמוך עליך.",
+      "אתה בעניינים חלקית.",
+      "הקשב עולה.",
+      "נוכחות מורגשת.",
+      "יש תגובה.",
+
+      "מצב סביר.",
+      "מרגיש רגיל.",
+      "אתה באמצע.",
+      "שום דרמה.",
+      "מאוזן.",
+      "אפשר לעבוד עם זה.",
+      "אתה פה.",
+      "הכול זורם.",
+      "אין תלונות.",
+      "יציב ונינוח.",
+
+      "משהו טוב קורה.",
+      "אתה על גל.",
+      "מרוכז.",
+      "חד יחסית.",
+      "יש אנרגיה.",
+      "הראש עובד.",
+      "קל לך.",
+      "אתה בעניין.",
+      "שיתוף פעולה מלא.",
+      "מרגיש נכון.",
+
+      "אתה חד.",
+      "הכול מתחבר.",
+      "מצב חזק.",
+      "זורם מצוין.",
+      "קלילות.",
+      "שליטה מלאה.",
+      "נוכחות מרשימה.",
+      "אנרגיה טובה.",
+      "אתה בעננים.",
+      "כיף להיות אתה עכשיו.",
+
+      "אתה בשיא.",
+      "פוקוס מושלם.",
+      "חד מאוד.",
+      "מוכן להכול.",
+      "אל תעצור.",
+      "זרימה מלאה.",
+      "זה רגע טוב.",
+      "שיא אישי.",
+      "כל הכפתורים עובדים.",
+      "אתה פצצה.",
+
+      "מצב בוסט.",
+      "רמה גבוהה.",
+      "שיא שיא.",
+      "חד ברמות.",
+      "אי אפשר לפספס אותך.",
+      "אתה שולט.",
+      "זה הזמן שלך.",
+      "וואו.",
+      "מקסימום.",
+      "אם זה היה משחק — ניצחת."
+    ];
+
+    function update(val) {
+      valueEl.textContent = val;
+      textEl.textContent = phrases[val - 1];
+    }
+
+    slider.addEventListener("input", () => update(slider.value));
+
+    update(slider.value);
+  </script>
+</body>
+</html>
